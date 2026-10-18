@@ -228,7 +228,7 @@ fun GroupListScreen(
                         color = currentTheme.textColor
                     )
                     Text(
-                        text = "Praktikum Pemrograman Android & Aplikasi Mobile",
+                        text = "Praktikum Pemrograman Android & Aplikasi Mobilee",
                         style = MaterialTheme.typography.bodyMedium,
                         color = currentTheme.textColor.copy(alpha = 0.7f),
                         textAlign = TextAlign.Center
