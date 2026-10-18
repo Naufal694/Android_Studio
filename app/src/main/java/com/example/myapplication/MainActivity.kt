@@ -29,16 +29,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
-// Data Class Anggota
+// Data Class Anggota (Diubah ke Bahasa Indonesia)
 data class Member(
     val id: Int,
-    val name: String,
+    val nama: String,
     val nim: String,
-    val role: String,
+    val jabatan: String,
     val bio: String,
     val avatarColor: Color,
-    val skills: List<String>,
-    val hobbies: List<String>
+    val skill: List<String>,
+    val hobi: List<String>
 )
 
 // Data Class Preset Tema
@@ -108,46 +108,46 @@ fun MainNavigationApp(modifier: Modifier = Modifier) {
     val members = remember {
         listOf(
             Member(
-                1, "Muhammad Naufal", "41155050200001", "Project Leader & Architect",
-                "Seorang pengembang sistem yang berfokus pada arsitektur software modular, kecerdasan buatan, dan pengelolaan basis data berskala besar.",
+                1, "Muhammad Naufal", "2024240028", "Mahasiswa",
+                "Mahasiswa Aktif Sistem Informasi Tahun 2024",
                 Color(0xFF2563EB),
-                listOf("Software Architecture", "Kotlin", "Database System", "RAG & AI"),
-                listOf("Membaca", "Catur", "Running")
+                listOf("yang penting ngomong"),
+                listOf("suka penasaran")
             ),
             Member(
-                2, "Kayla Ramadani", "41155050200002", "Lead UI/UX Designer",
-                "Spesialis antarmuka pengguna yang berfokus pada estetika visual modern, pengalaman pengguna intuitif, dan desain sistem adaptif.",
+                2, "Kayla Ramadhani", "2024240010", "Mahasiswi",
+                "Mahasiswa Aktif Sistem Informasi Yang suka Roblox.",
                 Color(0xFFDB2777),
-                listOf("UI/UX Design", "Figma", "Design System", "Wireframing"),
-                listOf("Digital Art", "Fotografi", "Desain Grafis")
+                listOf("Parkour Roblox, joki Game Horor"),
+                listOf("gak ada")
             ),
             Member(
-                3, "Kevin Fajar Pratama", "41155050200003", "Android Native Engineer",
-                "Pengembang aplikasi Android native berpengalaman menggunakan Jetpack Compose, Kotlin Coroutines, dan arsitektur MVVM.",
+                3, "Kevin Fajar Pratama", "2024240003", "Mahasiswa",
+                "Mahasiswa Akif sistem informasi tahun 2024",
                 Color(0xFF059669),
-                listOf("Android Dev", "Jetpack Compose", "Kotlin", "Clean Architecture"),
-                listOf("E-Sports", "Game Dev", "Gitar")
+                listOf("bisa ngoding, gitu gitu"),
+                listOf("game")
             ),
             Member(
-                4, "Radika Widi Putra", "41155050200004", "Backend & Cloud Engineer",
-                "Fokus pada perancangan API performa tinggi, pengelolaan server, keamanan jaringan, dan otomatisasi infrastruktur cloud.",
+                4, "Radika Widi Putra", "2024240029", "Mahasiswa",
+                "Mahasiswa Aktif Sistem Informasi Tahun 2024",
                 Color(0xFFD97706),
-                listOf("REST API", "Database", "Cloud Security", "Docker"),
-                listOf("Cyber Security", "Olahraga", "Otomotif")
+                listOf("Mengerjai Orang lain"),
+                listOf("Belajar Dengan Tekun, tapi besok")
             ),
             Member(
-                5, "Michael Joshua Sibarani", "41155050200005", "QA & Test Engineer",
-                "Bertanggung jawab menjaga kualitas aplikasi secara menyeluruh melalui automatisasi pengujian, penanganan bug, dan evaluasi performa.",
+                5, "Michael Joshua Sibarani", "2024240034", "Mahasiswa",
+                "Mahasiswa Kurang Aktif Sistem Informasi Tahun 2024",
                 Color(0xFF7C3AED),
-                listOf("Quality Assurance", "Automated Testing", "Debugging", "Performance Test"),
-                listOf("Musik", "Traveling", "Basket")
+                listOf("masih di cari"),
+                listOf("Menghilang pada saat kelas dan kerja kelompok")
             ),
             Member(
-                6, "M. Ghatan Naufal Hakin", "41155050200006", "System Analyst & Data",
-                "Ahli dalam menganalisis kebutuhan bisnis, perancangan diagram UML/DFD, alur proses data, serta analisis kelayakan sistem.",
+                6, "M. Ghatan Naufal Hakin", "2024240032", "Mahasiswa",
+                "Mahasiswa Aktif Sistem Informasi Tahun 2024",
                 Color(0xFF0891B2),
-                listOf("System Analysis", "UML/DFD Diagram", "Data Modeling", "Business Logic"),
-                listOf("Badminton", "Analisis Data", "Menulis")
+                listOf("Berisik di kelas"),
+                listOf("Ngonser, admin kamboja")
             )
         )
     }
@@ -189,7 +189,7 @@ fun GroupListScreen(
     var searchQuery by remember { mutableStateOf("") }
 
     val filteredMembers = members.filter {
-        it.name.contains(searchQuery, ignoreCase = true) || it.role.contains(searchQuery, ignoreCase = true)
+        it.nama.contains(searchQuery, ignoreCase = true) || it.jabatan.contains(searchQuery, ignoreCase = true)
     }
 
     Box(
@@ -211,7 +211,7 @@ fun GroupListScreen(
                         shape = RoundedCornerShape(50.dp)
                     ) {
                         Text(
-                            text = "ACADEMIC PROJECT 2026",
+                            text = "PROJECT ANDROID STUDIO",
                             color = currentTheme.accentColor,
                             style = MaterialTheme.typography.labelMedium,
                             fontWeight = FontWeight.Bold,
@@ -287,7 +287,7 @@ fun GroupListScreen(
                 OutlinedTextField(
                     value = searchQuery,
                     onValueChange = { searchQuery = it },
-                    placeholder = { Text("Cari nama atau peran...", color = currentTheme.textColor.copy(alpha = 0.5f)) },
+                    placeholder = { Text("Cari nama atau jabatan...", color = currentTheme.textColor.copy(alpha = 0.5f)) },
                     singleLine = true,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = currentTheme.accentColor,
@@ -335,7 +335,7 @@ fun GroupListScreen(
                         ) {
                             Box(contentAlignment = Alignment.Center) {
                                 Text(
-                                    text = member.name.take(1),
+                                    text = member.nama.take(1),
                                     fontWeight = FontWeight.Black,
                                     fontSize = 24.sp,
                                     color = member.avatarColor
@@ -347,7 +347,7 @@ fun GroupListScreen(
 
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = member.name,
+                                text = member.nama,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
                                 color = currentTheme.textColor
@@ -359,7 +359,7 @@ fun GroupListScreen(
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
-                                text = member.role,
+                                text = member.jabatan,
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.Bold,
                                 color = member.avatarColor
@@ -385,7 +385,7 @@ fun GroupListScreen(
     }
 }
 
-// HALAMAN 2: DETAIL BIODATA (Layout Diperbaiki Presisi)
+// HALAMAN 2: DETAIL BIODATA
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MemberDetailScreen(
@@ -443,7 +443,7 @@ fun MemberDetailScreen(
                         ) {
                             Box(contentAlignment = Alignment.Center) {
                                 Text(
-                                    text = member.name.take(1),
+                                    text = member.nama.take(1),
                                     fontSize = 44.sp,
                                     fontWeight = FontWeight.Black,
                                     color = member.avatarColor
@@ -454,7 +454,7 @@ fun MemberDetailScreen(
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Text(
-                            text = member.name,
+                            text = member.nama,
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Bold,
                             color = currentTheme.textColor,
@@ -468,7 +468,7 @@ fun MemberDetailScreen(
                             shape = RoundedCornerShape(50.dp)
                         ) {
                             Text(
-                                text = member.role,
+                                text = member.jabatan,
                                 style = MaterialTheme.typography.labelMedium,
                                 color = member.avatarColor,
                                 fontWeight = FontWeight.Bold,
@@ -546,7 +546,7 @@ fun MemberDetailScreen(
 
                         HorizontalDivider(color = Color.Gray.copy(alpha = 0.1f))
 
-                        // Seksi Skill (Menggunakan FlowRow Agar Wrap Otomatis)
+                        // Seksi Skill
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                             Text(
                                 text = "Skill & Keahlian",
@@ -560,14 +560,14 @@ fun MemberDetailScreen(
                                 verticalArrangement = Arrangement.spacedBy(8.dp),
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                member.skills.forEach { skill ->
+                                member.skill.forEach { item ->
                                     Surface(
                                         color = member.avatarColor.copy(alpha = 0.12f),
                                         shape = RoundedCornerShape(10.dp),
                                         border = androidx.compose.foundation.BorderStroke(1.dp, member.avatarColor.copy(alpha = 0.3f))
                                     ) {
                                         Text(
-                                            text = skill,
+                                            text = item,
                                             style = MaterialTheme.typography.labelSmall,
                                             fontWeight = FontWeight.SemiBold,
                                             color = member.avatarColor,
@@ -594,13 +594,13 @@ fun MemberDetailScreen(
                                 verticalArrangement = Arrangement.spacedBy(8.dp),
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                member.hobbies.forEach { hobby ->
+                                member.hobi.forEach { item ->
                                     Surface(
                                         color = Color.Gray.copy(alpha = 0.08f),
                                         shape = RoundedCornerShape(10.dp)
                                     ) {
                                         Text(
-                                            text = "• $hobby",
+                                            text = "• $item",
                                             style = MaterialTheme.typography.labelSmall,
                                             fontWeight = FontWeight.Medium,
                                             color = currentTheme.textColor.copy(alpha = 0.8f),
