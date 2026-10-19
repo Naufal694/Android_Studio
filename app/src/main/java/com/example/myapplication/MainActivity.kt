@@ -108,7 +108,7 @@ fun MainNavigationApp(modifier: Modifier = Modifier) {
     val members = remember {
         listOf(
             Member(
-                1, "Muhammad Naufal", "2024240028", "Mahasiswa",
+                1, "Nopal Jelek", "2024240028", "Mahasiswa",
                 "Mahasiswa Aktif Sistem Informasi Tahun 2024",
                 Color(0xFF2563EB),
                 listOf("yang penting ngomong"),
